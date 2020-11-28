@@ -4,7 +4,6 @@ import csv
 from os import listdir 
 import matplotlib.pyplot as plt
 from datetime import datetime
-from math import log10
 
 def strftime(x):
     return datetime.now().strftime(x) 
@@ -50,8 +49,6 @@ if input_is_file == 0:
         print('Хотите убрать что-то ещё? Если нет, то просто жмакните энтер')
         file_to_delete = input()
 
-#output
-
 output_file_name = 'output_'+strftime('%d')+strftime('%m')+strftime('%y')+'_'+strftime('%M')+strftime('%S')+'.csv'
 if input_is_file == 0:
     output_file_adress = location+'/'+output_file_name
@@ -62,8 +59,11 @@ print('')
 with open(output_file_adress,'w') as csvfile:
         filewriter = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
         filewriter.writerow(['Название файла', 'a1','da1','b1','db1','a2','da2','b2','db2','t0','dt0'])
-#data preparation
 
+        
+print('Наша функция выглядит так:')
+print('y = a1 * exp(-(x - t0) / b1) + a2 * exp(-(x - t0) / b2)')
+print('')
 print('Фиттинг очень чувствителен к изначальному предположению о величинах параметров')
 print('Изначальное предположение по умолчанию:')
 initial_guess = np.array([1,0.000005,1,0.000005,0.00000005])
