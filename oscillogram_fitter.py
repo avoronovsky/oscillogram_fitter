@@ -112,7 +112,7 @@ while initial_guess_change !='':
 #reguess_flag = input()
 reguess_flag = ''
 #print('Выведение графиков, доан, потом доделаю')
-
+print('Работаем...')
 
 problems = []
 unsure = []
